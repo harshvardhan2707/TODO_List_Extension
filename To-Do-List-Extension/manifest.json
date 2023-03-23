@@ -1,39 +1,39 @@
 {
-  "name": "Fresh Chrome Extension",
-  "description": "Fully functional, useful bare minimum Google Chrome extension boilerplate [Manifest V3].",
-  "homepage_url": "https://github.com/llagerlof/fresh-chrome-extension",
-  "version": "2.0.0",
-  "manifest_version": 3,
   "action": {
     "default_title": "execute.js will run (watch the Chrome DevTools' console)"
   },
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
-      "run_at" : "document_start",
-      "js": ["before.js"],
+      "run_at": "document_start",
+      "js": [ "before.js" ],
       "matches": [
         "https://*/*",
         "http://*/*"
       ]
     },
     {
-      "run_at" : "document_idle",
-      "js": ["after.js"],
+      "run_at": "document_idle",
+      "js": [ "after.js" ],
       "matches": [
         "https://*/*",
         "http://*/*"
       ]
     }
   ],
-  "background": {
-    "service_worker": "background.js"
-  },
+  "description": "Fully functional, useful bare minimum Google Chrome extension boilerplate [Manifest V3].",
+  "homepage_url": "https://github.com/llagerlof/fresh-chrome-extension",
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "manifest_version": 3,
+  "name": "Fresh Chrome Extension",
   "permissions": [
     "tabs",
     "scripting"
   ],
-  "host_permissions": [
-    "https://*/*",
-    "http://*/*"
-  ]
+  "version": "2.0.0"
 }
